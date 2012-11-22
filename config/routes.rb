@@ -6,6 +6,7 @@ AroundMe::Application.routes.draw do
     resources :events, :only => [:create, :update, :destroy] do
       post :participate, :on => :member
     end
+		resources :token_authentications
   end
   root :to => "home#index"
 
