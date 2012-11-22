@@ -1,8 +1,9 @@
 AroundMe::Application.routes.draw do
-  resources :events
+  resources :events, :except => [:create, :update, :destroy]
 
   authenticated :user do
     root :to => 'home#index'
+    resources :events, :only => [:create, :update, :destroy]
   end
   root :to => "home#index"
 
