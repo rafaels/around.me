@@ -7,7 +7,7 @@ class Event
 
   field :name, type: String
   field :description, type: String
-  field :date, type: Date
+  field :date, type: String
   field :x, type: String
   field :y, type: String
 
