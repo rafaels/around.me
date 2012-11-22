@@ -3,7 +3,9 @@ AroundMe::Application.routes.draw do
 
   authenticated :user do
     root :to => 'home#index'
-    resources :events, :only => [:create, :update, :destroy]
+    resources :events, :only => [:create, :update, :destroy] do
+      post :participate, :on => :member
+    end
   end
   root :to => "home#index"
 

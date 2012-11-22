@@ -54,6 +54,22 @@ class EventsController < ApplicationController
     end
   end
 
+  # POST /events
+  # POST /events.json
+  def participate
+    @event = Event.find(params[:event_id])
+
+    respond_to do |format|
+      if @event.participate!(current_user)
+        format.html { redirect_to @event, notice: 'Successfuly participating of event.' }
+        format.json { render json: @event, status: :ok, location: @event }
+      else
+        format.html { render action: "show" }
+        format.json { render json: @event.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PUT /events/1
   # PUT /events/1.json
   def update
