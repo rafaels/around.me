@@ -2,7 +2,7 @@ class Event
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  belongs_to :created_by, :class_name => "User"
+  belongs_to :created_by, :class_name => "User", :inverse_of => "created_events"
   has_and_belongs_to_many :users
 
   field :name, type: String

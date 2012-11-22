@@ -8,7 +8,7 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :token_authenticatable
 
-  has_many :events, :inverse_of => "created_by"
+  has_many :created_events, :inverse_of => "created_by", :class_name => "Event"
   has_and_belongs_to_many :events
 
   before_save :ensure_authentication_token
