@@ -1,4 +1,6 @@
 AroundMe::Application.routes.draw do
+  resources :events
+
   authenticated :user do
     root :to => 'home#index'
   end
