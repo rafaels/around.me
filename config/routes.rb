@@ -10,6 +10,8 @@ AroundMe::Application.routes.draw do
   end
   root :to => "home#index"
 
+  resources :gcm_registrations
+
   devise_for :users, :controllers => { :sessions => "sessions" }
   devise_scope :user do
     resources :sessions, :only => [:create, :destroy]
