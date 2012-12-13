@@ -1,6 +1,6 @@
 class GcmRegistrationsController < ApplicationController
   def create
-    user = User.find_by_token(params[:registration][:token])
+    user = User.where(:token => params[:registration][:token]).first
     user.reg_id = params[:registration][:reg_id]
 
     respond_to do |format|
